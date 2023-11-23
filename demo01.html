@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <style>
+        body{
+            margin:0px;
+            padding:0px;
+        }
+.banner_ad{
+    background-image:linear-gradient(#9DD2D8,#9DC3E2,#FADCE4);
+    height:200px;
+    width:100%;
+}
+.banner_ad img{
+    height:70px;
+    width:1400px;
+    margin:  0px auto;
+    dispaly:block;
+}
+ <h1>demo 01</h1> 
+</style>
+</head>
+<body bgcolor="#FADCE4" text="#EAB464">;
+ </body>
+ <div class="banner_ad">
+</div>
+<center>
+<h1>MUSIC</h1>
+</center>
+    <canvas></canvas>
+    <script>
+    let canvas = document.querySelector('canvas');
+    let context = canvas.getContext('2d');
+    let W = window.innerWidth;
+    let h = Window.innerHeight;
+    canvas.width = W;
+    canvas.height = h;  
+    
+    let num = 200;
+    let snows = [];
+    for(let i=0;i < num;i++){
+        snows.push({
+            x:Math.random()*W,
+            y:Math.random()*h,
+            r:Math.random()*10+1
+        })
+    }
+    let move = () =>{
+        for(let i=0;i <num;i++){
+            let snow = snows[i];
+            snow.x += Math.random()*2+1;
+            snow.y += Math.random()*2+1;
+            if(snow,x > W){
+                snow.x = 0;
+            }
+            if(snow,y > W){
+                snow.y = 0;
+        }
+    }
+    let draw = ()=>{
+        context.clearRect(0,0,W,h);
+        context1.beginPath();
+        context.fillStyle='rgb(255,255,255)';
+        context,ShadowColor = 'rge(255,255,255)';
+        context.shadowBlur = 10;
+
+        for(let i=0;i <num;i++){
+            let snow = snows[i];
+            context.moveTo(snow.x,snow.y);
+            context,arc(snow.x,snow.y,snow.r,0,Math.PI*2);
+        }
+        context.fill();
+        context.closePath();
+        move();
+    }
+    draw();
+    setInterval(draw,30);
+        </script>
+</center>
+</body>
+</html>
