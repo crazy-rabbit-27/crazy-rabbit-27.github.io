@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         body{
             margin:0px;
             padding:0px;
@@ -16,15 +20,14 @@
 }
 .banner_ad img{
     height:70px;
-    width:1400px;
-    margin:  0px auto;
-    dispaly:block;
+    width:1400px;la
+    margin: 0px auto;
+    display:block;
 }
  <h1>demo 01</h1> 
 </style>
 </head>
 <body bgcolor="#FADCE4" text="#EAB464">;
- </body>
  <div class="banner_ad">
 </div>
 <center>
@@ -35,7 +38,7 @@
     let canvas = document.querySelector('canvas');
     let context = canvas.getContext('2d');
     let W = window.innerWidth;
-    let h = Window.innerHeight;
+    let h = window.innerHeight;
     canvas.width = W;
     canvas.height = h;  
     
@@ -46,38 +49,38 @@
             x:Math.random()*W,
             y:Math.random()*h,
             r:Math.random()*10+1
-        })
+        });
     }
     let move = () =>{
         for(let i=0;i <num;i++){
             let snow = snows[i];
             snow.x += Math.random()*2+1;
             snow.y += Math.random()*2+1;
-            if(snow,x > W){
+            if(snow.x > W){
                 snow.x = 0;
             }
-            if(snow,y > W){
-                snow.y = 0;
+            if(snow.y > W){
+            }    snow.y = 0;
         }
     }
     let draw = ()=>{
         context.clearRect(0,0,W,h);
-        context1.beginPath();
-        context.fillStyle='rgb(255,255,255)';
-        context,ShadowColor = 'rge(255,255,255)';
+        context.beginPath();
+        context.fillStyle = 'rgb(255,255,255)';
+        context.ShadowColor = 'rgb(255,255,255)';
         context.shadowBlur = 10;
 
         for(let i=0;i <num;i++){
             let snow = snows[i];
             context.moveTo(snow.x,snow.y);
-            context,arc(snow.x,snow.y,snow.r,0,Math.PI*2);
+            context.arc(snow.x,snow.y,snow.r,0,Math.PI*2);
         }
         context.fill();
         context.closePath();
         move();
     }
     draw();
-    setInterval(draw,30);
+    setInterval(draw,10000);
         </script>
 </center>
 </body>
